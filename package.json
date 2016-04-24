@@ -1,0 +1,25 @@
+{
+  "name": "redux-proxy",
+  "version": "0.0.1",
+  "description": "Redux proxy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/finnsoft/redux-proxy.git"
+  },
+  "author": "Finnsoft",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/finnsoft/redux-proxy/issues"
+  },
+  "homepage": "https://github.com/finnsoft/redux-proxy#readme",
+  "dependencies": {
+    "lodash": "4.x",
+    "lodash-es": "4.x",
+    "normalizr": "2.x",
+    "redux": "3.x"
+  }
+}
