@@ -18,8 +18,6 @@
   "homepage": "https://github.com/finnsoft/redux-proxy#readme",
   "dependencies": {
     "lodash": "4.x",
-    "lodash-es": "4.x",
-    "normalizr": "2.x",
-    "redux": "3.x"
+    "normalizr": "2.x"
   }
 }
