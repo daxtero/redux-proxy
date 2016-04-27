@@ -52,6 +52,22 @@ Entity.get = function(params) {
         .then((response) => {
             // todo Normalize and charge
             cache[alias][key] = response;
+            if (response.id) {
+                if (!entities[alias]) {
+                    entities[alias] = {};
+                }
+                entities[alias][key] = new Class(response);
+            }
+            if (response instanceof Array) {
+                for (let instance of response) {
+                    if (instance.id) {
+                        if (!entities[alias]) {
+                            entities[alias] = {};
+                        }
+                        entities[alias][key] = new Class(instance);
+                    }
+                }
+            }
         })
         .catch((error) => {
             // todo

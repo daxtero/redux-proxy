@@ -8,7 +8,14 @@ export default class Season extends Entity {
     static getSchema() {
         return {
             serial: Serial,
-            episodes: (season) => Episode.getBySeasonId(season.id)
+            episodes: (season) => Episode.getBySeasonId(season.id),
+            url: (season) => {
+                const serial = Serial.get(season.serialId);
+                if (!serial || serial.pending) {
+                    return null;
+                }
+                return serial.url + '/' + season.number;
+            }
         };
     }
 
