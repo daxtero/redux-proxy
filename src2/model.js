@@ -49,15 +49,6 @@ Model.get = function(params) {
 
 /**
  * @params {*} params
- * @returns {*}
- */
-Model.getFromCache = function(params) {
-    throw new Error('Method ' + this.name +'.getFromCache method not implemented');
-};
-
-
-/**
- * @params {*} params
  * @returns {Promise}
  */
 Model.fetch = function(params) {
@@ -70,11 +61,8 @@ const chargeObject = (object, Class, value) => () => {
     }
 
     if (typeof value === 'number' || typeof value === 'string') {
-        if (typeof Class.get === 'function') {
-            return Class.get(value);
-        }
-        return Class.getFromCache(value);
-    }
+        return Class.get(value);
+    };
 
     if (typeof value === 'object' && !(value instanceof Array)) {
         const RealClass = Class.hasOwnProperty('getClassOf') ? Class.getClassOf(value) : Class;
@@ -98,7 +86,7 @@ const chargeArray = (object, schema, values) => () => {
     }
 
     if (plainArray) {
-        const cached = object.constructor.getFromCache(values);
+        const cached = object.constructor.get(values);
         if (cached) {
             return cached;
         }
